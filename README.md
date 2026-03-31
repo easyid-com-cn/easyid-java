@@ -2,6 +2,8 @@
 
 Official Java SDK for the EasyID identity verification API.
 
+EasyID 易验云 focuses on identity verification and security risk control APIs, including real-name verification, liveness detection, face recognition, phone verification, and fraud-risk related capabilities.
+
 ## Install
 
 ```xml
@@ -55,7 +57,7 @@ try {
 
 This is a server-side SDK. Do not expose `secret` in browsers or mobile apps.
 
-## More Docs
+## Official Resources
 
-- [Integration Guide](/Users/nbt-mingyi/mingyi.wu/easyid/sdk/docs/integration-guide.md)
-- [Publishing Strategy](/Users/nbt-mingyi/mingyi.wu/easyid/sdk/docs/repository-publishing-strategy.md)
+- Official website: `https://www.easyid.com.cn/`
+- GitHub organization: `https://github.com/easyid-com-cn/`
