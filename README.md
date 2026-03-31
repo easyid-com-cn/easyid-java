@@ -12,7 +12,7 @@ Official Java SDK for the EasyID identity verification API.
 </dependency>
 ```
 
-## Usage
+## Quick Start
 
 ```java
 EasyIDClient client = EasyIDClient.builder()
@@ -24,8 +24,38 @@ IDCardService.Verify2Result result = client.idCard().verify2("张三", "11010119
 System.out.println(result.match());
 ```
 
-## Notes
+## Supported APIs
 
-- This is a server-side SDK. Do not expose `secret` in browsers or mobile apps.
-- Use `baseUrl(...)` for private deployments.
-- See `../docs/integration-guide.md` for end-to-end integration and troubleshooting.
+- IDCard: `verify2`, `verify3`, `ocr`
+- Phone: `status`, `verify3`
+- Face: `liveness`, `compare`, `verify`
+- Bank: `verify4`
+- Risk: `score`, `storeFingerprint`
+- Billing: `balance`, `records`
+
+## Configuration
+
+- `baseUrl(...)`
+- `timeout(...)`
+- `httpClient(...)`
+
+## Error Handling
+
+Service-side business errors throw `APIError`.
+
+```java
+try {
+    client.phone().status("13800138000");
+} catch (APIError error) {
+    System.out.println(error.getCode());
+}
+```
+
+## Security Notice
+
+This is a server-side SDK. Do not expose `secret` in browsers or mobile apps.
+
+## More Docs
+
+- [Integration Guide](/Users/nbt-mingyi/mingyi.wu/easyid/sdk/docs/integration-guide.md)
+- [Publishing Strategy](/Users/nbt-mingyi/mingyi.wu/easyid/sdk/docs/repository-publishing-strategy.md)
