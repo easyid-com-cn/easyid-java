@@ -1,0 +1,41 @@
+name: Publish Java Package to Maven Central
+
+on:
+  push:
+    tags:
+      - "v*" # 推送 v1.0.0 这类标签自动触发
+  workflow_dispatch: # 支持手动触发
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    if: github.repository == 'easyid-com-cn/easyid-java'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+          cache: "maven"
+          # 固定配置，和你的 settings.xml 完全匹配
+          server-id: central
+          server-username: CENTRAL_PORTAL_USERNAME
+          server-password: CENTRAL_PORTAL_PASSWORD
+          # GPG 密钥配置
+          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+
+      - name: Build and Publish to Maven Central
+        env:
+          CENTRAL_PORTAL_USERNAME: ${{ secrets.CENTRAL_PORTAL_USERNAME }}
+          CENTRAL_PORTAL_PASSWORD: ${{ secrets.CENTRAL_PORTAL_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+        # 【核心】用你本地100%成功的命令！
+        run: mvn --batch-mode clean verify central-publishing:publish -DskipTests
