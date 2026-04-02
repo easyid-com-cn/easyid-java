@@ -146,16 +146,14 @@
       <plugin>
         <groupId>org.sonatype.central</groupId>
         <artifactId>central-publishing-maven-plugin</artifactId>
-        <version>0.5.0</version> <!-- 升级最新版 -->
+        <version>0.5.0</version>
         <extensions>true</extensions>
         <configuration>
-          <publishingType>USER_TOKEN</publishingType>
-          <!-- 新增：自动Close+Release，无需手动操作 -->
-          <autoReleaseAfterClose>true</autoReleaseAfterClose>
-          <!-- 跳过镜像（避免覆盖部署地址） -->
-          <skipMirroring>true</skipMirroring>
+            <publishingType>USER_TOKEN</publishingType>
+            <autoPublish>true</autoPublish>
+            <waitUntil>published</waitUntil>
         </configuration>
-      </plugin>
+    </plugin>
     </plugins>
   </build>
 </project>
