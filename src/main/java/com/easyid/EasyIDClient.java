@@ -5,7 +5,7 @@ import java.time.Duration;
 import java.util.regex.Pattern;
 
 public final class EasyIDClient {
-    private static final Pattern KEY_ID_PATTERN = Pattern.compile("^ak_[0-9a-f]+$");
+    private static final Pattern KEY_ID_PATTERN = Pattern.compile("^ak_[0-9a-zA-Z_]+$");
 
     private final IDCardService idCard;
     private final PhoneService phone;
