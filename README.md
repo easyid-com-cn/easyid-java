@@ -12,7 +12,7 @@ EasyID 易验云 focuses on identity verification and security risk control APIs
 <dependency>
   <groupId>com.easyid</groupId>
   <artifactId>easyid-java</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
 </dependency>
 ```
 
