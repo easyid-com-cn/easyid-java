@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>cn.com.easyid</groupId>
   <artifactId>easyid-java</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <name>easyid-java</name>
   <description>Official Java SDK for the EasyID identity verification API.</description>
   <url>https://www.easyid.com.cn</url>
